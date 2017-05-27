@@ -1,0 +1,10 @@
+.idea
+*.iml
+*.jar
+.gradle
+!gradle-wrapper.jar
+
+*/build/*
+*/gradel/*
+*/.gradel/*
+*/.idea/*

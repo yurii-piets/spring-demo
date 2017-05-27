@@ -1,0 +1,14 @@
+mainClassName = 'com.knights.Application'
+
+jar {
+    baseName = 'dependency-injection-demo'
+    version = '0.0.1'
+    manifest {
+        attributes 'Main-Class': 'com.knights.Application'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+dependencies {
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.6'
+}
