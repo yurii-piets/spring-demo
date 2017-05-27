@@ -1,5 +1,8 @@
-package com;
+package com.config;
 
+import com.car.Car;
+import com.racer.Racer;
+import com.car.SportCar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

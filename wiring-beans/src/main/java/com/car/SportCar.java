@@ -1,4 +1,4 @@
-package com;
+package com.car;
 
 import org.springframework.stereotype.Component;
 
@@ -9,6 +9,6 @@ public class SportCar implements Car {
 
     @Override
     public void drive() {
-        System.out.print("Driving " + mark + " " + model);
+        System.out.println("Driving " + mark + " " + model);
     }
 }

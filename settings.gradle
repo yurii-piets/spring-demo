@@ -1,2 +1,2 @@
-include 'dependecy-injection-demo'
-include 'wiring-beans-demo'
+include 'dependecy-injection'
+include 'wiring-beans'

@@ -1,5 +1,7 @@
-package com;
+package com.car;
 
+import com.config.CarsSpringConfig;
+import com.racer.Racer;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
@@ -32,6 +34,8 @@ public class SportCarTest {
     @Test
     public void drive() {
         racer.drive();
-        assertEquals("Driving BMW 7", systemOutRule.getLog());
+        String expected = "Driving BMW 7\r\n";
+        String actual = systemOutRule.getLog();
+        assertEquals(expected, actual);
     }
 }

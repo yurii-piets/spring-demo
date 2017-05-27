@@ -1,0 +1,13 @@
+jar {
+    baseName = 'wiring-beans-demo'
+    version = '0.0.1'
+    manifest {
+        attributes 'Main-Class': 'com.Application'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-test', version: '4.0.5.RELEASE'
+    compile group: 'com.github.stefanbirkner', name: 'system-rules', version: '1.16.0'
+}
