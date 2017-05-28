@@ -1,0 +1,8 @@
+jar {
+    baseName = 'scope-prototype-demo'
+    version = '0.0.1'
+    manifest {
+        attributes 'Main-Class': 'com.Application'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
