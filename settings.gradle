@@ -1,2 +1,4 @@
 include 'dependecy-injection'
 include 'wiring-beans'
+include 'conditional-beans'
+include 'qualifier-beans'
