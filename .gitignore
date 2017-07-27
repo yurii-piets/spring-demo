@@ -1,10 +1,10 @@
-.idea
 *.iml
 *.jar
-.gradle
 !gradle-wrapper.jar
 
-*/build/*
-*/gradel/*
-*/.gradel/*
-*/.idea/*
+build/
+gradel/
+gradle/
+.gradle/
+.idea/
+out/
