@@ -1,0 +1,32 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.10
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.0.3.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.3.RELEASE'
+	compile group: 'com.graphql-java', name: 'graphql-spring-boot-starter', version: '4.2.0'
+	compile group: 'com.graphql-java', name: 'graphiql-spring-boot-starter', version: '4.2.0'
+}
