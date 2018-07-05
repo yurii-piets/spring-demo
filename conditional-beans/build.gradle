@@ -6,3 +6,7 @@ jar {
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.7.RELEASE'
+}

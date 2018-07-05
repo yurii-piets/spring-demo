@@ -8,6 +8,7 @@ jar {
 }
 
 dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.7.RELEASE'
     compile group: 'org.springframework', name: 'spring-test', version: '4.0.5.RELEASE'
     compile group: 'com.github.stefanbirkner', name: 'system-rules', version: '1.16.0'
 }
