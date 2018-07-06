@@ -23,4 +23,32 @@ public class Mutation implements GraphQLMutationResolver {
         author.ifPresent(book::setAuthor);
         return bookRepository.save(book);
     }
+
+    public Book updateBookTitle(String newTitle, Long bookId) {
+        Optional<Book> book = bookRepository.findById(bookId);
+        book.ifPresent(b -> b.setTitle(newTitle));
+        book.ifPresent(bookRepository::save);
+        return book.orElse(null);
+    }
+
+    public Boolean deleteBookById(Long bookId) {
+        bookRepository.deleteById(bookId);
+        return true;
+    }
+
+    public Author addNewAuthor(Author author) {
+        return authorRepository.save(author);
+    }
+
+    public Boolean linkAuthorToBook(Long authorId, Long bookId) {
+        Optional<Author> author = authorRepository.findById(bookId);
+        Optional<Book> book = bookRepository.findById(bookId);
+        book.ifPresent(b -> author.ifPresent(a -> {
+            b.setAuthor(a);
+            a.getBooks().add(b);
+            authorRepository.save(a);
+            bookRepository.save(b);
+        }));
+        return true;
+    }
 }

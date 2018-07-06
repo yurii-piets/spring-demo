@@ -4,15 +4,17 @@ type Book {
     author: Author!
 }
 
-type BookQueries {
+extend type Queries {
     allBooks: [Book]
 }
 
-type BookMutations {
+extend type Mutations {
     newBook(title: String!, authorId: Long!): Book
+    updateBookTitle(newTitle: String!, bookId: Long!): Book
+    deleteBookById(bookId: Long!): Boolean
 }
 
 schema {
-    query: BookQueries
-    mutation: BookMutations
+    query: Queries
+    mutation: Mutations
 }

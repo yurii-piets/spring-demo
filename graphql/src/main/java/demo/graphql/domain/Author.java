@@ -12,11 +12,17 @@ import java.util.List;
 public class Author {
 
     @Id
-    private Long id;
+    private Long id = generate_id();
 
     private String name;
 
     private String surname;
 
     private List<Book> books;
+
+    private static long global_id = 0L;
+
+    private static long generate_id() {
+        return global_id++;
+    }
 }

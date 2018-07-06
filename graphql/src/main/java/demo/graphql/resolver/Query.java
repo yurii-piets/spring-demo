@@ -1,6 +1,7 @@
 package demo.graphql.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import demo.graphql.domain.Author;
 import demo.graphql.domain.Book;
 import demo.graphql.repository.AuthorRepository;
 import demo.graphql.repository.BookRepository;
@@ -15,5 +16,9 @@ public class Query implements GraphQLQueryResolver {
 
     public Iterable<Book> allBooks() {
         return bookRepository.findAll();
+    }
+
+    public Iterable<Author> allAuthors(){
+        return authorRepository.findAll();
     }
 }

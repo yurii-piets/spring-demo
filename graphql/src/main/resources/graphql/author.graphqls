@@ -6,7 +6,15 @@ type Author {
 }
 
 input AuthorInput {
-    id: ID!
     name: String
     surname: String!
+}
+
+type Queries {
+    allAuthors: [Author]
+}
+
+type Mutations {
+    addNewAuthor(author: AuthorInput!): Author
+    linkAuthorToBook(authorId: Long!, bookId: Long!): Boolean
 }
