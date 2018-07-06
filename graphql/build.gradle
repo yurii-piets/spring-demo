@@ -29,4 +29,5 @@ dependencies {
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.3.RELEASE'
 	compile group: 'com.graphql-java', name: 'graphql-spring-boot-starter', version: '4.2.0'
 	compile group: 'com.graphql-java', name: 'graphiql-spring-boot-starter', version: '4.2.0'
+	compile group: 'com.graphql-java', name: 'graphql-java-tools', version: '5.1.0'
 }

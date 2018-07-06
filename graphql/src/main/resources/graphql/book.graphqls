@@ -1,0 +1,18 @@
+type Book {
+    id: ID!
+    title: String!
+    author: Author!
+}
+
+type BookQueries {
+    allBooks: [Book]
+}
+
+type BookMutations {
+    newBook(title: String!, authorId: Long!): Book
+}
+
+schema {
+    query: BookQueries
+    mutation: BookMutations
+}
