@@ -5,23 +5,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-@Document(indexName = "agent")
+@Document(indexName = "book")
 @Data
 @NoArgsConstructor
-public class AgentData {
+public class Book {
 
     @Id
     private Long id;
 
-    private String name;
+    private String title;
 
-    private Location location;
-
-    @Data
-    @NoArgsConstructor
-    public class Location {
-        private Double longitude;
-
-        private Double latitude;
-    }
+    private Author author;
 }
