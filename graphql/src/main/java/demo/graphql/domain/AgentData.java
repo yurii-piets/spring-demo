@@ -17,7 +17,9 @@ public class AgentData {
 
     private Location location;
 
-    class Location {
+    @Data
+    @NoArgsConstructor
+    public class Location {
         private Double longitude;
 
         private Double latitude;
