@@ -10,4 +10,6 @@ public interface CustomerRepository extends SolrRepository<CustomerDocument, Lon
     CustomerDocument findById(Long id);
 
     void save(CustomerDocument customerDocument);
+
+    void deleteById(Long id);
 }

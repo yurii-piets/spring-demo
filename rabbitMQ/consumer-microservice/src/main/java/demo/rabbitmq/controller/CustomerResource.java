@@ -4,6 +4,7 @@ import demo.rabbitmq.domain.CustomerDocument;
 import demo.rabbitmq.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,12 @@ public class CustomerResource {
     @PostMapping
     public ResponseEntity<?> customer(@RequestBody CustomerDocument customer) {
         customerRepository.save(customer);
+        return ResponseEntity.accepted().build();
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> customerDelete(@PathVariable Long id){
+        customerRepository.deleteById(id);
         return ResponseEntity.accepted().build();
     }
 }
