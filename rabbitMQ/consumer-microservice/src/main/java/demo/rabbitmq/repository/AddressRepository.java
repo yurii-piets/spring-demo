@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface AddressRepository extends SolrRepository<AddressDocument, Long> {
 
     AddressDocument findById(Long id);
+
+    void save(AddressDocument address);
 }
