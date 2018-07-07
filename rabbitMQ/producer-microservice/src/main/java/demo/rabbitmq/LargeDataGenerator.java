@@ -4,6 +4,7 @@ import com.google.common.base.Stopwatch;
 import demo.rabbitmq.domain.Address;
 import demo.rabbitmq.domain.Customer;
 import demo.rabbitmq.repository.CustomerRepository;
+import demo.rabbitmq.service.MigrationService;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,29 +15,38 @@ import org.springframework.stereotype.Component;
 @Component
 public class LargeDataGenerator implements CommandLineRunner {
 
-    //    private final static int MAX_CUSTOMERS = 100_000;
-    private final static int MAX_CUSTOMERS = 10;
+    private final static int MAX_CUSTOMERS = 100_000;
 
     private final Logger logger = LogManager.getLogger();
 
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private MigrationService migrationService;
+
     @Override
     public void run(String... args) throws Exception {
+        //generateCustomersWithTimer();
+        migrationService.migrate();
+    }
+
+    private void generateCustomersWithTimer() {
         logger.info("Generation started");
         Stopwatch timer = Stopwatch.createUnstarted();
         timer.start();
+
         generateCustomers();
+
         timer.stop();
         logger.info("Generation finished in [" + timer.elapsed() + "]");
     }
 
     private void generateCustomers() {
-//        for (int i = 1; i < MAX_CUSTOMERS; ++i) {
-//            Customer customer = randomCustomer(i);
-//            customerRepository.save(customer);
-//        }
+        for (int i = 1; i < MAX_CUSTOMERS; ++i) {
+            Customer customer = randomCustomer(i);
+            customerRepository.save(customer);
+        }
 
         Address address = Address.builder()
                 .id(0L)

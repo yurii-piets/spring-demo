@@ -1,5 +1,6 @@
 package demo.rabbitmq.service;
 
+import com.google.common.base.Stopwatch;
 import demo.rabbitmq.domain.Address;
 import demo.rabbitmq.domain.Customer;
 import demo.rabbitmq.message.AddressMessage;
@@ -7,6 +8,8 @@ import demo.rabbitmq.message.CustomerMessage;
 import demo.rabbitmq.repository.AddressRepository;
 import demo.rabbitmq.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Async;
@@ -16,6 +19,8 @@ import reactor.core.publisher.Flux;
 @Service
 @RequiredArgsConstructor
 public class MigrationService {
+
+    private final Logger logger = LogManager.getLogger();
 
     private final Queue queue;
 
@@ -32,8 +37,15 @@ public class MigrationService {
 
     @Async
     public void migrate() {
+        logger.info("Migration started");
+        Stopwatch timer = Stopwatch.createUnstarted();
+        timer.start();
+
         migrateCustomers();
         migrateAddresses();
+
+        timer.stop();
+        logger.info("Migration finished in [" + timer.elapsed() + "]");
     }
 
     private void migrateCustomers() {
