@@ -2,6 +2,7 @@ package demo.rabbitmq.controller;
 
 import demo.rabbitmq.domain.Customer;
 import demo.rabbitmq.repository.CustomerRepository;
+import demo.rabbitmq.service.MigrationService;
 import demo.rabbitmq.ws.WSCustomer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,8 @@ public class CustomerResource {
 
     private final CustomerRepository customerRepository;
 
+    private final MigrationService migrationService;
+
     @GetMapping("/{id}")
     public ResponseEntity<?> customer(@PathVariable Long id) {
         Optional<Customer> customer = customerRepository.findById(id);
@@ -29,7 +32,9 @@ public class CustomerResource {
 
     @PostMapping
     public ResponseEntity<?> customer(@RequestBody WSCustomer wsCustomer) {
-        customerRepository.save(wsCustomer.toCustomer());
+        Customer customer = wsCustomer.toCustomer();
+        customerRepository.save(customer);
+        migrationService.migrate(customer);
         return ResponseEntity.accepted().build();
     }
 }

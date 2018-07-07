@@ -26,6 +26,11 @@ public class MigrationService {
     private final AddressRepository addressRepository;
 
     @Async
+    public void migrate(Customer customer) {
+        rabbitTemplate.convertAndSend(queue.getName(), map(customer));
+    }
+
+    @Async
     public void migrate() {
         migrateCustomers();
         migrateAddresses();
