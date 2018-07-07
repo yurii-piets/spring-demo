@@ -1,2 +1,15 @@
 server:
   port: 8073
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/producer_demo
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    properties.hibernate.dialect: org.hibernate.dialect.MariaDB53Dialect
+  data:
+    jpa:
+      repositories:
+        enabled: true

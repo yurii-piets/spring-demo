@@ -17,7 +17,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'demo.rabbitmq'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 1.10
 
 repositories {
 	mavenCentral()
@@ -27,5 +27,4 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-amqp')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
