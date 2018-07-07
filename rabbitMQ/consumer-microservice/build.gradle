@@ -25,6 +25,7 @@ repositories {
 
 
 dependencies {
+    compile project(':rabbitMQ:common')
     compile('org.springframework.boot:spring-boot-starter-amqp')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile 'org.springframework.data:spring-data-solr:3.0.8.RELEASE'

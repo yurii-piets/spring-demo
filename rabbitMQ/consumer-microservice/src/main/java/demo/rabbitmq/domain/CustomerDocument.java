@@ -1,5 +1,7 @@
 package demo.rabbitmq.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -9,6 +11,8 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
 @Data
 @NoArgsConstructor
 @SolrDocument(solrCoreName = "customer", collection = "customer")
+@Builder
+@AllArgsConstructor
 public class CustomerDocument {
 
     @Id
