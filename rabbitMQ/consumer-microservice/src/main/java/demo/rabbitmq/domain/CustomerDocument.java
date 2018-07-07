@@ -25,5 +25,6 @@ public class CustomerDocument {
     @Indexed(name = "surname", type = "string")
     private String surname;
 
+    @Indexed(name = "addressId", type = "long")
     private Long addressId;
 }

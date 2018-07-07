@@ -52,7 +52,7 @@ public class MigrationService {
         return CustomerMessage.builder()
                 .id(customer.getId())
                 .name(customer.getName())
-                .surname(customer.getSuranme())
+                .surname(customer.getSurname())
                 .addressId(customer.getAddress() != null ? customer.getAddress().getId() : null)
                 .build();
     }

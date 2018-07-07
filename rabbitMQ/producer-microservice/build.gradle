@@ -32,5 +32,6 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.3.RELEASE'
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.5'
     compile group: 'io.projectreactor', name: 'reactor-core', version: '3.1.8.RELEASE'
-
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    compile 'com.google.guava:guava:25.1-jre'
 }

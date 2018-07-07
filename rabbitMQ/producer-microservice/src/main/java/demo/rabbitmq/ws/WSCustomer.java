@@ -20,7 +20,7 @@ public class WSCustomer {
     public WSCustomer(Customer customer) {
         this.id = customer.getId();
         this.name = customer.getName();
-        this.surname = customer.getSuranme();
+        this.surname = customer.getSurname();
         this.address = customer.getAddress() != null ? new WSAddress(customer.getAddress()) : null;
     }
 
@@ -28,7 +28,7 @@ public class WSCustomer {
         Customer customer = Customer.builder()
                 .id(id)
                 .name(name)
-                .suranme(surname)
+                .surname(surname)
                 .build();
 
         if (this.address != null) {

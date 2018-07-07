@@ -9,7 +9,11 @@ public interface CustomerRepository extends SolrRepository<CustomerDocument, Lon
 
     CustomerDocument findById(Long id);
 
+    CustomerDocument findBySurname(String surname);
+
     void save(CustomerDocument customerDocument);
 
     void deleteById(Long id);
+
+    void deleteAll();
 }

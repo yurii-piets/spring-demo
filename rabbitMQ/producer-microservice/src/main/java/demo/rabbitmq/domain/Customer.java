@@ -31,7 +31,7 @@ public class Customer {
     private String name;
 
     @Column(name = "cus_surname")
-    private String suranme;
+    private String surname;
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private Address address;

@@ -10,4 +10,6 @@ public interface AddressRepository extends SolrRepository<AddressDocument, Long>
     AddressDocument findById(Long id);
 
     void save(AddressDocument address);
+
+    void deleteAll();
 }
