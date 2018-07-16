@@ -28,7 +28,7 @@ public class LargeDataGenerator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         //generateCustomersWithTimer();
-        migrationService.migrate();
+        //migrationService.migrate();
     }
 
     private void generateCustomersWithTimer() {
